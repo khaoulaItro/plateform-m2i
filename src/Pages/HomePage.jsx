@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import ChatIcon from '@mui/icons-material/Chat';
 import Header from '../components/Header';
@@ -11,33 +8,17 @@ import Footer from '../components/Footer';
 import WelcomeSection from '../components/WelcomeSection';
 import MotivationBox from '../components/MotivationBox';
 import ValuesCard from '../components/ValuesCard';
+import ChatBot from '../components/ChatBot';
 
 const HomePage = () => {
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({
-    name: '',
-    message: ''
-  });
+  const [visibleSemester, setVisibleSemester] = useState(null);
 
   const handleOpen = () => setOpen(true);
-  const handleClose = () => {
-    setOpen(false);
-    setForm({ name: '', message: '' });
-  };
+  const handleClose = () => setOpen(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prevForm) => ({
-      ...prevForm,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Envoyer le formulaire avec emailjs ou une autre API
-    console.log('Message envoyé:', form);
-    handleClose();
+  const showSemester = (semester) => {
+    setVisibleSemester(semester);
   };
 
   return (
@@ -50,15 +31,22 @@ const HomePage = () => {
         overflowX: 'hidden',
       }}
     >
-      <Header />
+      <Header showSemester={showSemester} />
+      
       <Box sx={{ flexGrow: 1 }}>
         <WelcomeSection />
         <MotivationBox />
         <ValuesCard />
+
+        {visibleSemester && (
+          <Box sx={{ padding: '20px', textAlign: 'center' }}>
+            <img src={`/images/Test_M2I.png`} alt={`Programme ${visibleSemester}`} style={{ maxWidth: '100%' }} />
+          </Box>
+        )}
       </Box>
+      
       <Footer />
 
-      {/* Icône de chat */}
       <Box
         sx={{
           position: 'fixed',
@@ -79,7 +67,7 @@ const HomePage = () => {
       </Box>
 
       {/* Modal de chat */}
-      <Modal open={open} onClose={handleClose}>
+      <Modal open={open} onClose={handleClose} style={{ backgroundColor: 'transparent' }}>
         <Box
           sx={{
             position: 'absolute',
@@ -87,40 +75,10 @@ const HomePage = () => {
             left: '50%',
             transform: 'translate(-50%, -50%)',
             width: 400,
-            bgcolor: 'white',
             boxShadow: 24,
-            p: 4,
-            borderRadius: '8px',
           }}
         >
-          <Typography variant="h6" component="h2" gutterBottom>
-            Envoyez un message
-          </Typography>
-          <form onSubmit={handleSubmit}>
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Nom"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-            />
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Message"
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              multiline
-              rows={4}
-              required
-            />
-            <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
-              Envoyer
-            </Button>
-          </form>
+          <ChatBot />
         </Box>
       </Modal>
     </Box>
