@@ -19,19 +19,19 @@ const MotivationBox = ({ onOpenForm }) => {
         width: '950px', // Réduire la largeur
         margin: '20px 0 0 20px', // Espace devant l'élément précédent
         zIndex: 1,
-        borderTopLeftRadius: '400px',
-        borderBottomLeftRadius: '400px',
-        // backgroundImage: `
-        //   linear-gradient(rgba(64, 155, 212, 0.5), rgba(64, 155, 212, 0.5)),
-        //   url('https://th.bing.com/th/id/R.cc4e71812194beb9a539cb8b17489821?rik=s8orVEnM2sd2PA&pid=ImgRaw&r=0')
-              // `,
+        borderTopLeftRadius: '500px',
+        borderBottomLeftRadius: '500px',
+        backgroundImage: `
+          linear-gradient(rgba(64, 155, 212, 0.5), rgba(64, 155, 212, 0.5)),
+          url('https://th.bing.com/th/id/R.f278011f51f3d23dec18c2a1ca1bc551?rik=XrMu1WefGZnF2Q&pid=ImgRaw&r=0')
+              `,
         backgroundColor: '#e0f7fa',
         backgroundSize: 'cover',
         backgroundPosition: 'right',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <Typography
+      {/* <Typography
         sx={{
           color: 'white',
           fontSize: '1rem', // Réduire la taille de la police
@@ -44,10 +44,10 @@ const MotivationBox = ({ onOpenForm }) => {
         }}
       >
         Vos plaintes ne sont pas juste des déclarations, mais aussi des conseils et des remarques qui nous permettent de mieux vous servir ainsi que de nous améliorer. Si quelque chose ne vous satisfait pas, n'hésitez pas à déposer une plainte. Nous sommes là pour écouter et améliorer notre service pour vous et pour nous.
-      </Typography>
-      <Button variant="contained" color="primary" onClick={onOpenForm}>
+      </Typography> */}
+      {/* <Button variant="contained" color="primary" onClick={onOpenForm}>
         Ajouter une Plainte
-      </Button>
+      </Button> */}
     </Box>
   );
 };

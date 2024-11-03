@@ -67,7 +67,7 @@ const WelcomeSection = () => {
                 <img
                     src="https://th.bing.com/th/id/R.45cb873c207c94736b6351b336773ee4?rik=NDPGYRGANCQo1w&riu=http%3a%2f%2fdgoae.unam.mx%2fCOE%2fassets%2fimg%2fwhy-us.png&ehk=laya8hZFRpUb8DLK0rVE3VPcMW7u2ce%2f74%2bvKURdJe4%3d&risl=&pid=ImgRaw&r=0"
                     alt="Étudiants M2I"
-                    style={{ width: '100%', maxWidth: '400px', height: 'auto', borderRadius: '10px' }}
+                    style={{ width: '700px', maxWidth: '1000px', height: 'auto', borderRadius: '10px' }}
                 />
             </Box>
         </Box>

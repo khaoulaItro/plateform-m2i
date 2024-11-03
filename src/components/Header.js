@@ -2,18 +2,14 @@ import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, Popover, List, ListItem } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
-import GroupIcon from '@mui/icons-material/Group';
+import MailIcon from '@mui/icons-material/Mail'; // Use Mail icon for Contact Us
 import WorkOutlineIcon from '@mui/icons-material/WorkOutline';
 
-const Header = ({ showSemester }) => { // Ajouter showSemester ici
+const Header = ({ showSemester, handleOpenContactForm }) => {
     const [anchorElProgram, setAnchorElProgram] = useState(null);
-    const [anchorElPersonnel, setAnchorElPersonnel] = useState(null);
 
     const handleProgramOpen = (event) => setAnchorElProgram(event.currentTarget);
     const handleProgramClose = () => setAnchorElProgram(null);
-
-    const handlePersonnelOpen = (event) => setAnchorElPersonnel(event.currentTarget);
-    const handlePersonnelClose = () => setAnchorElPersonnel(null);
 
     const handleScrollToSection = (sectionId) => {
         const sectionElement = document.getElementById(sectionId);
@@ -70,28 +66,11 @@ const Header = ({ showSemester }) => { // Ajouter showSemester ici
                             </List>
                         </Popover>
 
-                        <Button sx={{ margin: '0 10px', color: 'black' }} onClick={handlePersonnelOpen}>
-                            <GroupIcon sx={{ marginRight: '5px', color: 'rgba(128, 128, 128, 0.5)' }} />
-                            Personnel
+                        {/* Replace Personnel with Contact Us */}
+                        <Button sx={{ margin: '0 10px', color: 'black' }} onClick={handleOpenContactForm}>
+                            <MailIcon sx={{ marginRight: '5px', color: 'rgba(128, 128, 128, 0.5)' }} />
+                            Contact Us
                         </Button>
-                        <Popover
-                            open={Boolean(anchorElPersonnel)}
-                            anchorEl={anchorElPersonnel}
-                            onClose={handlePersonnelClose}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'left',
-                            }}
-                            PaperProps={{
-                                sx: popoverStyles,
-                            }}
-                        >
-                            <List>
-                                <ListItem button onClick={handlePersonnelClose}>Chef de département</ListItem>
-                                <ListItem button onClick={handlePersonnelClose}>Chef de laboratoire</ListItem>
-                                <ListItem button onClick={handlePersonnelClose}>Responsable de la scolarité</ListItem>
-                            </List>
-                        </Popover>
 
                         <Button sx={{ margin: '0 10px', color: 'black' }}>
                             <WorkOutlineIcon sx={{ marginRight: '5px', color: 'rgba(128, 128, 128, 0.5)' }} />
