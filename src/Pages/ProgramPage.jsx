@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header'; // Assurez-vous d'importer correctement le Header
+import Footer from '../components/Footer'; // Assurez-vous d'importer correctement le Footer
 
 const ProgramPage = () => {
   const navigate = useNavigate();
@@ -12,21 +14,28 @@ const ProgramPage = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
         minHeight: '100vh',
-        padding: '20px',
       }}
     >
-      {/* Bouton de retour en arrière */}
-      <IconButton 
-        onClick={() => navigate(-1)} 
-        sx={{ alignSelf: 'flex-start', marginBottom: '20px' }}
-      >
-        <ArrowBackIcon />
-      </IconButton>
+      {/* Header */}
+      <Header />
 
-      {/* Image de la page */}
-      <img src="/images/Test_M2I.png" alt="Programme M2I" style={{ maxWidth: '100%' }} />
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          flexGrow: 1,
+          padding: '20px',
+        }}
+      >
+    
+        {/* Image de la page */}
+        <img src="/images/Test_M2I.png" alt="Programme M2I" style={{ maxWidth: '100%' }} />
+      </Box>
+
+      {/* Footer */}
+      <Footer />
     </Box>
   );
 };
