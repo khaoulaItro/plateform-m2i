@@ -18,7 +18,7 @@ const MapComponent = () => {
             LOTISSEMENT N 01, OUJDA 60050 <br /> · 47 km
           </Popup>
         </Marker>
-      </MapContainer>
+      </MapContainer>  
     </Box>
   );
 };

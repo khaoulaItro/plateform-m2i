@@ -1,14 +1,20 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import './App.css';
- // Assure-toi que le chemin est correct
-import HomePage from '../src/Pages/HomePage';
+import HomePage from './Pages/HomePage'; // Assurez-vous que le chemin est correct
+import ProgramPage from './Pages/ProgramPage';
+
 function App() {
   return (
-    <div className="App">
-      <HomePage />
-     
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/programme" element={<ProgramPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
