@@ -31,9 +31,9 @@ const HomePage = () => {
         overflowX: 'hidden',
       }}
     >
-      <Header showSemester={showSemester} />
+      <Header showSemester={showSemester} sx={{ position: 'fixed', top: 0, left: 0, right: 0 }} />
       
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, paddingTop: '80px' }}> {/* Ajustez le padding-top selon la hauteur de votre header */}
         <WelcomeSection />
         <MotivationBox />
         <ValuesCard />
